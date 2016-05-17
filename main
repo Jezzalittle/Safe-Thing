@@ -12,7 +12,7 @@ Public Class Form1
     Dim amountOfJobs As Integer = 0
 
     Dim targetDate()
-    Dim targetDateInSecs
+    Dim targetDateInSecs()
 
     Dim hours
     Dim minutes
@@ -35,24 +35,27 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        amountOfJobs = amountOfJobs + 1
+
         ReDim Preserve compName(amountOfJobs)
         ReDim Preserve timeStart(amountOfJobs)
         ReDim Preserve timeReminder(amountOfJobs)
         ReDim Preserve timeLeft(amountOfJobs)
         ReDim Preserve targetDate(amountOfJobs)
+        ReDim Preserve targetDateInSecs(amountOfJobs)
 
-        targetDateInSecs = (ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second) + Val(TextBox2.Text) * 3600)
-        ConvertToHMS(targetDateInSecs, hours, minutes, seconds)
+        targetDateInSecs(amountOfJobs) = (ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second) + (Val(TB2.Text) * 3600))
+        ConvertToHMS(targetDateInSecs(amountOfJobs), hours, minutes, seconds)
 
         targetDate(amountOfJobs) = hours & " : " & seconds
 
 
-        timeLeftSecs = targetDateInSecs - ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second)
+        timeLeftSecs = targetDateInSecs(amountOfJobs) - ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second)
         ConvertToHMS(timeLeftSecs, hours, minutes, seconds)
 
         timeLeft(amountOfJobs) = hours & " : " & minutes
 
-        timeReminderInSecs = Val(TextBox2.Text) * 3600
+        timeReminderInSecs = Val(TB3.Text) * 3600
         ConvertToHMS(timeReminderInSecs, hours, minutes, seconds)
 
         timeReminder(amountOfJobs) = hours & " : " & minutes
@@ -64,12 +67,26 @@ Public Class Form1
 
         DataGridView1.Rows.Add(compName(amountOfJobs), timeLeft(amountOfJobs), timeStart(amountOfJobs), targetDate(amountOfJobs), timeReminder(amountOfJobs))
 
-        amountOfJobs = amountOfJobs + 1
+
 
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        DataGridView1.Rows.Clear()
+
+        For i As Integer = 0 To amountOfJobs
+            Dim tempTimeLeft = 0
+            tempTimeLeft = targetDateInSecs(i) - ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second)
+            ConvertToHMS(tempTimeLeft, hours, minutes, seconds)
+            timeLeft(i) = hours & " : " & minutes
+            DataGridView1.Rows.Add(compName(i), timeLeft(i), timeStart(i), targetDate(i), timeReminder(i))
 
 
+        Next
+
+
+    End Sub
 
 
 End Class
