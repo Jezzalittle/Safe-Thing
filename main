@@ -18,6 +18,7 @@ Public Class Form1
     Dim minutes
     Dim seconds
 
+	Dim firstLoop = false 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Timer1.Start()
@@ -67,7 +68,11 @@ Public Class Form1
 
         DataGridView1.Rows.Add(compName(amountOfJobs), timeLeft(amountOfJobs), timeStart(amountOfJobs), targetDate(amountOfJobs), timeReminder(amountOfJobs))
 
-
+		if firstLoop = True Then
+		amountOfJobs = amountOfJobs + 1
+		End If 
+		
+		firstLoop = True
 
     End Sub
 

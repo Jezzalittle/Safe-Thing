@@ -10,3 +10,7 @@ C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplicatio
 C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
 C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
 C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\jlittl17\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\jlittl17\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+C:\Users\jlittl17\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+C:\Users\jlittl17\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
