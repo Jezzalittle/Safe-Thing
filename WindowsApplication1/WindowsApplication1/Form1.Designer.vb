@@ -30,13 +30,14 @@ Partial Class Form1
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TB1 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.LabCompName = New System.Windows.Forms.TextBox()
+        Me.LabJobTime = New System.Windows.Forms.TextBox()
+        Me.LabReminderTime = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnEntJob = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,9 +47,10 @@ Partial Class Form1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
         Me.DataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.DataGridView1.Location = New System.Drawing.Point(274, 35)
+        Me.DataGridView1.Location = New System.Drawing.Point(422, 44)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(543, 373)
+        Me.DataGridView1.Size = New System.Drawing.Size(814, 574)
         Me.DataGridView1.TabIndex = 0
         '
         'Column1
@@ -65,13 +67,13 @@ Partial Class Form1
         '
         'Column3
         '
-        Me.Column3.HeaderText = "Time Start"
+        Me.Column3.HeaderText = "Job Start Time"
         Me.Column3.Name = "Column3"
         Me.Column3.ReadOnly = True
         '
         'Column4
         '
-        Me.Column4.HeaderText = "Time Finish "
+        Me.Column4.HeaderText = "Job Finish Time "
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
@@ -84,75 +86,88 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(38, 77)
+        Me.Label1.Location = New System.Drawing.Point(57, 119)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(82, 13)
+        Me.Label1.Size = New System.Drawing.Size(122, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Company Name"
         '
-        'TB1
+        'LabCompName
         '
-        Me.TB1.Location = New System.Drawing.Point(125, 77)
-        Me.TB1.Name = "TB1"
-        Me.TB1.Size = New System.Drawing.Size(100, 20)
-        Me.TB1.TabIndex = 2
+        Me.LabCompName.Location = New System.Drawing.Point(188, 119)
+        Me.LabCompName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.LabCompName.Name = "LabCompName"
+        Me.LabCompName.Size = New System.Drawing.Size(148, 26)
+        Me.LabCompName.TabIndex = 2
         '
-        'TextBox1
+        'LabJobTime
         '
-        Me.TextBox1.Location = New System.Drawing.Point(125, 128)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.LabJobTime.Location = New System.Drawing.Point(188, 198)
+        Me.LabJobTime.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.LabJobTime.Name = "LabJobTime"
+        Me.LabJobTime.Size = New System.Drawing.Size(148, 26)
+        Me.LabJobTime.TabIndex = 3
         '
-        'TextBox2
+        'LabReminderTime
         '
-        Me.TextBox2.Location = New System.Drawing.Point(125, 182)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 4
+        Me.LabReminderTime.Location = New System.Drawing.Point(188, 280)
+        Me.LabReminderTime.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.LabReminderTime.Name = "LabReminderTime"
+        Me.LabReminderTime.Size = New System.Drawing.Size(148, 26)
+        Me.LabReminderTime.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(37, 182)
+        Me.Label2.Location = New System.Drawing.Point(55, 280)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 13)
+        Me.Label2.Size = New System.Drawing.Size(116, 20)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Reminder Time"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(38, 128)
+        Me.Label3.Location = New System.Drawing.Point(57, 198)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.Size = New System.Drawing.Size(92, 20)
         Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Job Time"
+        Me.Label3.Text = "Job Time(h)"
         '
-        'Button1
+        'BtnEntJob
         '
-        Me.Button1.Location = New System.Drawing.Point(125, 230)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 27)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Enter Job"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.BtnEntJob.Location = New System.Drawing.Point(188, 354)
+        Me.BtnEntJob.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.BtnEntJob.Name = "BtnEntJob"
+        Me.BtnEntJob.Size = New System.Drawing.Size(150, 41)
+        Me.BtnEntJob.TabIndex = 7
+        Me.BtnEntJob.Text = "Enter Job"
+        Me.BtnEntJob.UseVisualStyleBackColor = True
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 60000
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(848, 471)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(1272, 725)
+        Me.Controls.Add(Me.BtnEntJob)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.TB1)
+        Me.Controls.Add(Me.LabReminderTime)
+        Me.Controls.Add(Me.LabJobTime)
+        Me.Controls.Add(Me.LabCompName)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Main"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -160,17 +175,18 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents LabCompName As TextBox
+    Friend WithEvents LabJobTime As TextBox
+    Friend WithEvents LabReminderTime As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BtnEntJob As Button
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Timer2 As Timer
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TB1 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Timer1 As Timer
 End Class
