@@ -6,8 +6,8 @@
     Dim timeReminder()
     Dim timeReminderInSecs
 
-    Dim sortArray()
-    Dim tempArray()
+    Dim sortArray() As Integer
+    Dim tempArray() As Integer
     Dim timeLeftSec()
 
     Dim timeLeft()
@@ -15,7 +15,7 @@
 
     Dim amountOfJobs As Integer = 0
 
-    Dim FILE_NAME As String = ("C:\Users\jlittl17\AppData\Roaming\Timelock\Saved_Data.txt")
+    Dim FILE_NAME As String = ("C:\Users\Public\TimeLock\Saved_Data.txt")
 
     Dim targetDate()
     Dim targetDateDays
@@ -27,6 +27,31 @@
     Dim seconds
 
     Dim firstLoop = False
+
+
+
+    Sub Bubblesort(Array() As Integer, index() As Integer, Length As Integer)
+        Dim I As Integer
+        Dim J As Integer
+        Dim Temp As Integer
+        Dim tempIndex As Integer
+
+        For I = Length To 1 Step -1 'the last element on the array does not get sorted.    
+            For J = 0 To I - 1
+                If Array(J) > Array(J + 1) Then  ' Compare neighboring elements    
+                    Temp = Array(J)
+                    tempIndex = index(J)
+                    Array(J) = Array(J + 1)
+                    index(J) = index(J + 1)
+                    Array(J + 1) = Temp
+                    index(J + 1) = tempIndex
+
+
+                End If
+            Next
+        Next
+    End Sub
+
 
     Public Sub ConvertToHMS(ByVal timeInseconds As Integer, ByRef hours As Integer, ByRef minutes As Integer, ByRef seconds As Integer)
         hours = Math.Floor(timeInseconds / 3600)
@@ -121,23 +146,41 @@
 
         Next
 
-        Array.Sort(tempArray)
-
-
         For i = 0 To amountOfJobs
-            Console.WriteLine(tempArray(i) & " temp array " & i)
-            Console.WriteLine(timeLeftSec(i) & " time left secs " & i)
 
             sortArray(i) = i
-            Console.WriteLine(sortArray(i) & " sort array " & i)
-        Next
-        DataGridView1.Rows.Clear()
-        For i = 0 To amountOfJobs
 
+
+        Next
+
+
+        Bubblesort(tempArray, sortArray, amountOfJobs)
+
+
+
+
+        For i = 0 To amountOfJobs
+            Console.WriteLine(tempArray(i) & " " & i)
+
+
+        Next
+
+
+
+
+
+
+        DataGridView1.Rows.Clear()
+
+
+        For i = 0 To amountOfJobs
 
             DataGridView1.Rows.Add(compName(sortArray(i)), timeLeft(sortArray(i)), timeStart(sortArray(i)), targetDate(sortArray(i)), timeReminder(sortArray(i)))
 
         Next
+
+
+
 
 
 
@@ -184,15 +227,26 @@
                 timeLeft(i) = hours & " : " & minutes
             End If
 
+
+
+
+
+
             For j As Integer = 0 To amountOfJobs
             Next
 
-            DataGridView1.Rows.Add(compName(sortArray(i)), timeLeft(sortArray(i)), timeStart(sortArray(i)), targetDate(sortArray(i)), timeReminder(sortArray(i)))
+            If targetDateInSecs(sortArray(i)) > ConvertToSecs(Date.Now.Hour, Date.Now.Minute, Date.Now.Second) Then
+                Console.WriteLine(timeLeftSec(sortArray(i)))
+                DataGridView1.Rows.Add(compName(sortArray(i)), timeLeft(sortArray(i)), timeStart(sortArray(i)), targetDate(sortArray(i)), timeReminder(sortArray(i)))
+
+            End If
+
 
             If timeLeft(i) = timeReminder(i) Then
                 My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
                 MsgBox(compName(i) & " Has " & timeReminder(i) & " Time Left")
             End If
+
 
 
 
@@ -245,6 +299,5 @@
             MessageBox.Show("Test3.txt Does Not Exist") 'if file does not exsit 
         End If
     End Sub
-
 
 End Class

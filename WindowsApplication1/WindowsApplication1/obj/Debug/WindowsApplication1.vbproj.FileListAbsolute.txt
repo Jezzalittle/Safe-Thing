@@ -11,3 +11,16 @@ C:\Users\jlittl17\Documents\Visual Studio 2015\Projects\WindowsApplication1\Wind
 C:\Users\jlittl17\Documents\Visual Studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.login.resources
 C:\Users\jlittl17\Documents\Visual Studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
 C:\Users\jlittl17\Documents\Visual Studio 2015\Projects\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe.config
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbprojResolveAssemblyReference.cache
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.login.resources
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\Owner\Documents\GitHub\Safe-Thing\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
