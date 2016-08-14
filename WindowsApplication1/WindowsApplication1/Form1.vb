@@ -296,7 +296,7 @@
             End If
             objRead.Close()
         Else
-            MessageBox.Show("Test3.txt Does Not Exist") 'if file does not exsit 
+            MessageBox.Show("Test3.txt Does Not Exist, Jobs Will Not Be Recoreded") 'if file does not exsit 
         End If
     End Sub
 
